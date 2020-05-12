@@ -43,14 +43,28 @@ class Son extends React.Component{
 
 const Grandson = (props)=>{
     const [n, setN] = React.useState(0);
+    const [m, setM] = React.useState(0);
     return (
         <div className="Grandson">
             孙子 n:{n}
-            <button onClick={() => setN(n + 1)}>+1</button>
+            <button onClick={() => setN(n + 1)}>n+1</button>
+             m:{m}
+            <button onClick={() => setM(m + 1)}>m+1</button>
         </div>
     );
 };
-
+//也可以写成
+// const Grandson = ()=>{
+//     const [state, setState] = React.useState({n:0,m:0});
+//     return (
+//         <div className="Grandson">
+//             孙子 n:{state.n}
+//             <button onClick={() => setState({...state,n:state.n + 1})}>n+1</button>
+//             m:{state.m}
+//             <button onClick={() => setState({...state,m:state.m + 1})}>m+1</button>
+//         </div>
+//     );
+// };
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
