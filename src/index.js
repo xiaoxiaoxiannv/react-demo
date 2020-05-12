@@ -16,19 +16,25 @@ class Son extends React.Component{
     constructor() {
         super();
         this.state = {
-            n: 0
+            n: 0,
+            m: 0
         };
     }
-    add() {
-        this.setState((state)=>{
-            return {n:state.n +1}
-        })//setState是异步更新ui的过程
+    addN() {
+        this.setState({n:this.state.n +1});
+        //m不会被覆盖为undefined
+    }
+    addM() {
+        this.setState({ m: this.state.m + 1 });
+        //n不会被覆盖为undefined
     }
     render(){
         return(
             <div className="Son">
                 儿子 n: {this.state.n}
-                <button onClick={() => this.add()}>+1</button>
+                <button onClick={() => this.addN()}>n+1</button>
+                m: {this.state.m}
+                <button onClick={() => this.addM()}>m+1</button>
                 <Grandson />
             </div>
         );
